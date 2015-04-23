@@ -1,0 +1,9 @@
+{
+  "lib/name.js": "lib/{%= name %}.js",
+  "style/name.css": "style/{%= name %}.css",
+  "assets/css/name.less": "assets/css/{%= name %}.less",
+  "assets/css/name.sass": "assets/css/{%= name %}.sass",
+  "assets/css/name.scss": "assets/css/{%= name %}.scss",
+  "test/name_test.js": "test/{%= name %}_test.js",
+  "test/name.html": "test/{%= name %}.html"
+}
