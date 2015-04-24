@@ -1,0 +1,8 @@
+{
+  "name": "vigil-ui",
+  "dependencies": {
+    "jquery": "*",
+    "bootstrap": "*",
+    "angularjs": "*"
+  }
+}
