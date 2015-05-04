@@ -143,7 +143,36 @@ module.exports = function (grunt) {
                     src: ['test/**/*.js']
                 }
             },
+            connect: {
+                options: {
+                    port: 8000,
+                    hostname: 'localhost',
+                    livereload: 35729
+                },
+                server: {
+                    options: {
+                        open: true,
+                        base: [
+                            '.'
+                        ]
+                    }
+                }
+            },
             watch: {
+                livereload: {
+                    options: {
+                        livereload: '<%=connect.options.livereload%>'  //监听前面声明的端口  35729
+                    },
+                    files: [
+                        'test/**/*.html',
+                        'test/**/{,*/}*.css',
+                        'test/**/{,*/}*.js',
+                        'test/**/images/{,*/}*.{png,jpg}',
+                        'plugins/**/*.js',
+                        'plugins/**/*.css',
+                        'index.html'
+                    ]
+                },
                 lib: {
                     files: '<%= jshint.lib.src %>',
                     tasks: ['jshint:lib', 'qunit']
@@ -165,8 +194,12 @@ module.exports = function (grunt) {
                     tasks: ['sass']
                 }
             }
-        });
+        }
+    )
+    ;
     require('load-grunt-tasks')(grunt);
     grunt.registerTask('default', ['clean', 'bower', 'sass', 'less', 'concat', 'uglify', 'autoprefixer', 'csscomb', 'csslint',
         'cssmin']);
-};
+    grunt.registerTask('serve', ['connect:server', 'watch:livereload']);
+}
+;

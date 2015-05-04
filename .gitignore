@@ -4,3 +4,4 @@
 dist/
 plugins/
 bower_components/
+.sass-cache/
